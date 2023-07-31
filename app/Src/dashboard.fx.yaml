@@ -1,0 +1,771 @@
+dashboard As screen:
+    BackgroundImage: =blog_new
+    Fill: =RGBA(22,38,50,0.3)
+    ImagePosition: =ImagePosition.Fill
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: |-
+        =UpdateContext(
+            {
+                formVisible1: true,
+                formVisible2: false,
+                inputOtp: false,
+                registerForm: false
+            }
+        )
+
+    Rectangle5 As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(107, 107, 107, 0.8)
+        Height: =768
+        Width: =1366
+        ZIndex: =1
+
+    Rectangle12 As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Fill: =RGBA(255, 255, 255, 0.4)
+        Height: =768
+        Width: =626
+        ZIndex: =2
+
+    Container8 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(77, 77, 77, 0.7)
+        Height: =512
+        RadiusBottomLeft: =20
+        RadiusBottomRight: =20
+        RadiusTopLeft: =20
+        RadiusTopRight: =20
+        Width: =724
+        X: =600
+        Y: =144
+        ZIndex: =3
+
+        signinForm As form:
+            AcceptsFocus: =false
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DataSource: =EduraUsers
+            DefaultMode: =FormMode.New
+            Height: =246
+            NumberOfColumns: =1
+            Width: =662
+            X: =30
+            Y: =65
+            ZIndex: =1
+
+            Title_DataCard2 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Title"
+                Default: =ThisItem.Title
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@EduraUsers],DataSourceInfo.DisplayName,"Title")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@EduraUsers], DataSourceInfo.MaxLength, "Title")
+                Required: =true
+                Update: =EmailInput.Text
+                Visible: =If(inputOtp, false, true)
+                Width: =662
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+                DataCardKey9 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =17
+                    Text: ="Email"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =33
+                    Y: =If(formVisible2, 100,0)
+                    ZIndex: =1
+
+                EmailInput As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(32, 54, 71, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    PressedFill: =RGBA(255, 255, 255, 1)
+                    RadiusBottomLeft: =15
+                    RadiusBottomRight: =15
+                    RadiusTopLeft: =15
+                    RadiusTopRight: =15
+                    Size: =17
+                    Tooltip: =Parent.DisplayName
+                    Visible: =If(inputOtp, false, true)
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage8 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =EmailInput.Y + EmailInput.Height
+                    ZIndex: =3
+
+                StarVisible8 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey9.Height
+                    Size: =17
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey9.Y
+                    ZIndex: =4
+
+            Password_DataCard1 As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Password"
+                Default: =ThisItem.Password
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@EduraUsers],DataSourceInfo.DisplayName,"Password")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@EduraUsers], DataSourceInfo.MaxLength, "Password")
+                Required: =true
+                Update: =PasswordInput.Text
+                Visible: =formVisible1
+                Width: =662
+                X: =0
+                Y: =1
+                ZIndex: =2
+
+                DataCardKey10 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =17
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                PasswordInput As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(32, 54, 71, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    PressedFill: =RGBA(255, 255, 255, 1)
+                    RadiusBottomLeft: =15
+                    RadiusBottomRight: =15
+                    RadiusTopLeft: =15
+                    RadiusTopRight: =15
+                    Size: =17
+                    Tooltip: =Parent.DisplayName
+                    Visible: =If(inputOtp, false, true)
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage9 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =PasswordInput.Y + PasswordInput.Height
+                    ZIndex: =3
+
+                StarVisible9 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey10.Height
+                    Size: =17
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey10.Y
+                    ZIndex: =4
+
+        Container8_1 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(77, 77, 77, 0.4)
+            Height: =512
+            RadiusBottomLeft: =20
+            RadiusBottomRight: =20
+            RadiusTopLeft: =20
+            RadiusTopRight: =20
+            Width: =28
+            ZIndex: =2
+
+        Button2 As button:
+            Align: =If(formVisible1, Align.Center, Align.Left)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(formVisible1, RGBA(185, 188, 192, 0.3), RGBA(0,0,0,0))
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =If(formVisible1, ColorFade(RGBA(100, 118, 132, 1), -20%), RGBA(0,0,0,0))
+            OnSelect: |
+                =If(
+                    formVisible1,
+                    If(
+                        !IsMatch(
+                            EmailInput.Text,
+                            "^[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                        ),
+                        Notify(
+                            "Invalid email format.",
+                            NotificationType.Error
+                        ),
+                        If(
+                            !IsMatch(
+                                PasswordInput.Text,
+                                "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                            ),
+                            Notify(
+                                "Password must contain at least one number, one special character, one alphabet, and be at least 8 characters long.",
+                                NotificationType.Error
+                            ),
+                            If(
+                                IsEmpty(
+                                    Filter(
+                                        EduraUsers,
+                                        Title = EmailInput.Text && Password = PasswordInput.Text
+                                    )
+                                ),
+                                Notify(
+                                    "User is not registered!",
+                                    NotificationType.Error
+                                ),
+                                Set(
+                                    loggedIn,
+                                    true
+                                )
+                            )
+                        );
+                    );
+                    If(
+                        loggedIn,
+                        Navigate(homeScreen),
+                        ResetForm(signinForm)
+                    ),
+                    UpdateContext(
+                        {
+                            formVisible1: true,
+                            formVisible2: false,
+                            inputOtp: false
+                        }
+                    )
+                );
+            PressedFill: =If(formVisible1,Self.Color, RGBA(0,0,0,0))
+            Size: =15
+            Text: =If(formVisible1, "Sign In", "Want to Sign In ?")
+            Underline: =If(formVisible1, false, true)
+            Width: =If(formVisible1, 160, 200)
+            X: =60
+            Y: =378
+            ZIndex: =3
+
+        Button2_8 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =If(formVisible1, RGBA(133, 187, 212, 0.3), RGBA(0,0,0,0))
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =If(formVisible1, ColorFade(RGBA(100, 118, 132, 1), -20%), RGBA(0,0,0,0))
+            OnSelect: =Navigate(homeScreen);
+            PressedFill: =If(formVisible1, RGBA(144, 146, 149, 1), RGBA(0,0,0,0))
+            Size: =15
+            Text: ="Continue as Guest"
+            Underline: =If(formVisible1, false, true)
+            Width: =220
+            X: =If(formVisible1, 443, 295)
+            Y: =378
+            ZIndex: =4
+
+        Button2_9 As button:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(250, 200, 219, 0.2)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(100, 118, 132, 1), -20%)
+            OnSelect: =Navigate(register);
+            PressedFill: =RGBA(144, 146, 149, 1)
+            Size: =15
+            Text: ="Register"
+            Visible: =formVisible1
+            Width: =170
+            X: =248
+            Y: =378
+            ZIndex: =5
+
+        Button5 As button:
+            Align: =Align.Left
+            Color: =RGBA(225, 227, 230, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(0, 0, 0, 0)
+            FontWeight: =FontWeight.Semibold
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: |-
+                =UpdateContext(
+                    {
+                        formVisible1: false,
+                        formVisible2: true
+                    }
+                )
+            PressedFill: =
+            Size: =15
+            Text: ="Forgot Password ?"
+            Underline: =true
+            Visible: =formVisible1
+            Width: =300
+            X: =60
+            Y: =290
+            ZIndex: =6
+
+        Button5_1 As button:
+            Color: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(100, 118, 132, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(100, 118, 132, 1)
+            Fill: =RGBA(185, 188, 192, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: |-
+                =If(
+                    IsBlank(EmailInput.Text),
+                    Notify(
+                        "Please enter an email.",
+                        NotificationType.Warning
+                    ),
+                    !IsMatch(
+                        EmailInput.Text,
+                        "^[\w\.-]+@[\w\.-]+\.\w{2,}$"
+                    ),
+                    Notify(
+                        "Invalid email format.",
+                        NotificationType.Error
+                    ),
+                    // Check if the email exists in the SharePoint list
+                    CountRows(
+                        Filter(
+                            EduraUsers,
+                            Title = EmailInput.Text
+                        )
+                    ) > 0,
+                    // Email exists in the SharePoint list
+                    Set(
+                        foundUserRecord,
+                        LookUp(
+                            EduraUsers,
+                            Title = EmailInput.Text
+                        )
+                    );
+                    // Generate a 6-digit random OTP
+                Set(
+                        randomOTP,
+                        Text(
+                            Rand() * 1000000,
+                            "000000"
+                        )
+                    );
+                    // Update the OTP for the found user in the SharePoint list (assuming "authCode" is the column to store OTP)
+                Patch(
+                        EduraUsers,
+                        foundUserRecord,
+                        {authCode: Value(randomOTP)}
+                    );
+                    // Send an email with the OTP
+                Office365Outlook.SendEmail(
+                        EmailInput.Text,
+                        "Password Reset OTP",
+                        "Dear " & "User" & "," & Char(10) & Char(10) & "You have requested to reset your password for your Edura account. Please find your One-Time Password (OTP) below:" & Char(10) & Char(10) & "OTP: " & randomOTP & Char(10) & Char(10) & "Please use this OTP to reset your password." & Char(10) & Char(10) & "In case you did not initiate this password reset, please report to us immediately." & Char(10) & Char(10) & "Best regards," & Char(10) & "The Edura Team"
+                    );
+                    // Show the email success notification
+                Notify(
+                        "An email containing OTP has been sent to " & EmailInput.Text,
+                        NotificationType.Success
+                    );
+                    // Update the inputOtp context variable to true
+                UpdateContext({inputOtp: true}),
+                    // If there is no account with this email
+                    Notify(
+                        "There is no account with this email.",
+                        NotificationType.Warning
+                    )
+                )
+            PressedFill: =
+            Size: =15
+            Text: ="Reset Password"
+            Visible: |-
+                =If(
+                    formVisible2,
+                    If(
+                        inputOtp,
+                        false,
+                        true
+                    ),
+                    false
+                )
+            Width: =220
+            X: =60
+            Y: =300
+            ZIndex: =7
+
+        Label5 As label:
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(210, 215, 218, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Size: =15
+            Text: ="OR"
+            Visible: =If(formVisible2,true, false)
+            Width: =50
+            X: =250
+            Y: =382
+            ZIndex: =8
+
+        Button5_2 As button:
+            Color: =RGBA(32, 54, 71, 1)
+            DisabledBorderColor: =RGBA(100, 118, 132, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(100, 118, 132, 1)
+            Fill: =RGBA(235, 237, 238, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =45
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =
+            OnSelect: |-
+                =If(
+                    IsBlank(OTPInput.Text),
+                    Notify(
+                        "Please enter the OTP.",
+                        NotificationType.Warning
+                    ),
+                    IsBlank(PasswordInput_1.Text),
+                    Notify(
+                        "Please enter the password.",
+                        NotificationType.Warning
+                    ),
+                    If(
+                        !IsMatch(
+                            PasswordInput_1.Text,
+                            "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+                        ),
+                        Notify(
+                            "Password must contain at least one number, one special character, one alphabet, and be at least 8 characters long.",
+                            NotificationType.Error
+                        ),
+                        If(
+                            CountRows(
+                                Filter(
+                                    EduraUsers,
+                                    authCode = Text(OTPInput.Text) And Title = EmailInput.Text
+                                )
+                            ) > 0,
+                            // Both OTP and email match a record in the SharePoint list
+                            Patch(
+                                EduraUsers,
+                                LookUp(
+                                    EduraUsers,
+                                    Title = EmailInput.Text
+                                ),
+                                {Password: PasswordInput_1.Text}
+                            );
+                            Notify(
+                                "Password Reset Successfully. Please Sign In.",
+                                NotificationType.Success
+                            );
+                            ResetForm(signinForm);
+                            ResetForm(signinForm_1);
+                            UpdateContext(
+                                {
+                                    formVisible1: true,
+                                    formVisible2: false,
+                                    inputOtp: false
+                                }
+                            ),
+                            // OTP is incorrect
+                            Notify(
+                                "Incorrect OTP. Please try again.",
+                                NotificationType.Error
+                            )
+                        )
+                    )
+                )
+            PressedFill: =
+            Size: =15
+            Text: ="Reset Password"
+            Visible: =If(inputOtp, true, false)
+            Width: =220
+            X: =60
+            Y: =300
+            ZIndex: =9
+
+        signinForm_1 As form:
+            AcceptsFocus: =false
+            BorderColor: =RGBA(32, 54, 71, 1)
+            DataSource: =EduraUsers
+            DefaultMode: =FormMode.New
+            Height: =246
+            NumberOfColumns: =1
+            Visible: =If(inputOtp, true, false)
+            Width: =662
+            X: =30
+            Y: =65
+            ZIndex: =10
+
+            otpInput As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Title"
+                Default: =ThisItem.Title
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@EduraUsers],DataSourceInfo.DisplayName,"Title")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@EduraUsers], DataSourceInfo.MaxLength, "Title")
+                Required: =true
+                Update: =OTPInput.Text
+                Visible: =If(inputOtp, true, false)
+                Width: =662
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+                DataCardKey9_1 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =17
+                    Text: ="OTP"
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =33
+                    ZIndex: =1
+
+                OTPInput As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(32, 54, 71, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    PressedFill: =RGBA(255, 255, 255, 1)
+                    RadiusBottomLeft: =15
+                    RadiusBottomRight: =15
+                    RadiusTopLeft: =15
+                    RadiusTopRight: =15
+                    Size: =17
+                    Tooltip: =Parent.DisplayName
+                    Visible: =If(inputOtp, true, false)
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey9_1.Y + DataCardKey9_1.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage8_1 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =OTPInput.Y + OTPInput.Height
+                    ZIndex: =3
+
+                StarVisible8_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey9_1.Height
+                    Size: =17
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey9_1.Y
+                    ZIndex: =4
+
+            passwordInput As typedDataCard.textualEditCard:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Password"
+                Default: =ThisItem.Password
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@EduraUsers],DataSourceInfo.DisplayName,"Password")
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =50
+                MaxLength: =DataSourceInfo([@EduraUsers], DataSourceInfo.MaxLength, "Password")
+                Required: =true
+                Update: =PasswordInput_1.Text
+                Visible: =If(inputOtp, true, false)
+                Width: =662
+                X: =0
+                Y: =1
+                ZIndex: =2
+
+                DataCardKey10_1 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =34
+                    Size: =17
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                PasswordInput_1 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =0
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    FocusedBorderThickness: =4
+                    HoverBorderColor: =RGBA(32, 54, 71, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(255, 255, 255, 1)
+                    MaxLength: =Parent.MaxLength
+                    PaddingLeft: =5
+                    PressedFill: =RGBA(255, 255, 255, 1)
+                    RadiusBottomLeft: =15
+                    RadiusBottomRight: =15
+                    RadiusTopLeft: =15
+                    RadiusTopRight: =15
+                    Size: =17
+                    Tooltip: =Parent.DisplayName
+                    Visible: =If(inputOtp, true, false)
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey10_1.Y + DataCardKey10_1.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage9_1 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =PasswordInput_1.Y + PasswordInput_1.Height
+                    ZIndex: =3
+
+                StarVisible9_1 As label:
+                    Align: =Align.Center
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Height: =DataCardKey10_1.Height
+                    Size: =17
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey10_1.Y
+                    ZIndex: =4
+
+    Label2 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Lato Black'
+        Height: =474
+        Size: =80
+        Text: ="Sign In"
+        Width: =484
+        X: =71
+        Y: =153
+        ZIndex: =4
+

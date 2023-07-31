@@ -1,0 +1,996 @@
+coursesScreen As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+
+    navbar_5 As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(245, 246, 247, 1)
+        Width: =1366
+        ZIndex: =1
+
+    navlinkCourses_5 As button:
+        BorderThickness: =0
+        Color: =RGBA(22, 38, 50, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Lighter
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: ="COURSES"
+        Underline: =true
+        Width: =150
+        X: |-
+            =If(
+                loggedIn,
+                910,
+                950
+            )
+        Y: =30
+        ZIndex: =2
+
+    logo_5 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.'Great Vibes'
+        Size: =50
+        Text: ="edura"
+        Width: =127
+        X: =35
+        Y: =30
+        ZIndex: =3
+
+    navlinkSign_5 As button:
+        BorderThickness: =0
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: |
+            =If(
+                loggedIn,
+                Set(
+                    loggedIn,
+                    false
+                );
+                
+            );
+            ResetForm(signinForm);
+            Navigate(dashboard);
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: |-
+            =If(
+                loggedIn,
+                "LOGOUT",
+                "SIGN IN / REGISTER"
+            )
+        Width: |-
+            =If(
+                loggedIn,
+                170,
+                270
+            )
+        X: |-
+            =If(
+                loggedIn,
+                1180,
+                1080
+            )
+        Y: =35
+        ZIndex: =4
+
+    navlinkHome_5 As button:
+        BorderThickness: =0
+        Color: =RGBA(22, 38, 50, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Lighter
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: =Navigate(homeScreen);
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: ="HOME"
+        Width: =150
+        X: |-
+            =If(
+                loggedIn,
+                790,
+                820
+            )
+        Y: =30
+        ZIndex: =5
+
+    creatorLink_5 As button:
+        BorderThickness: =0
+        Color: =RGBA(22, 38, 50, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Lighter
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: =Navigate(newsletter);
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: ="CREATOR"
+        Visible: |-
+            =If(
+                loggedIn,
+                true,
+                false
+            )
+        Width: =150
+        X: =1050
+        Y: =30
+        ZIndex: =6
+
+    Container6_2 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =668
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        Y: =100
+        ZIndex: =7
+
+        Label6_6 As label:
+            AlignInContainer: =AlignInContainer.Stretch
+            AutoHeight: =true
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Georgia
+            FontWeight: =FontWeight.Bold
+            Height: =66
+            PaddingBottom: =40
+            PaddingLeft: =35
+            PaddingTop: =40
+            Size: =28
+            Text: |-
+                ="All Courses :"
+            Underline: =true
+            Width: =480
+            X: =20
+            Y: =20
+            ZIndex: =1
+
+        Label6_7 As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =66
+            PaddingBottom: =40
+            PaddingLeft: =35
+            PaddingTop: =40
+            Size: =27
+            Text: ="Web Development"
+            Width: =1364
+            X: =2
+            ZIndex: =2
+
+        Container5_4 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            LayoutMinHeight: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_4.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_4.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_4.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =3
+
+            "Gallery5_4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                BorderColor: =RGBA(32, 54, 71, 1)
+                DelayItemLoading: =true
+                Height: |-
+                    =If(
+                        Mod(
+                            CountRows(Gallery5_4.AllItems),
+                            3
+                        ) = 0,
+                        (CountRows(Gallery5_4.AllItems) / 3) * 300,
+                        (CountRows(Gallery5_4.AllItems) / 3 + 1) * 300
+                    )
+                Items: |-
+                    =Filter(
+                        Edura,
+                        Domain.Value = "Web Development"
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                NavigationStep: =0
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =353
+                Width: =1331
+                WrapCount: =3
+                X: =15
+                Y: =30
+                ZIndex: =1
+
+                Image16_4 As image:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =220
+                    Image: |
+                        =ThisItem.Thumbnail
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: |
+                        =Set(
+                            video,
+                            ""
+                        );
+                        Set(
+                            title,
+                            ThisItem.Title
+                        );
+                        Set(
+                            about,
+                            ThisItem.About
+                        );
+                        Set(
+                            creator,
+                            ThisItem.'Creator(s)'
+                        );
+                        Set(
+                            students,
+                            ThisItem.'Students Enrolled'
+                        );
+                        Set(
+                            video,
+                            ThisItem.Video
+                        );
+                        If(
+                            loggedIn,
+                            Navigate(courseDetails),
+                            Notify(
+                                "Sign In Required!",
+                                NotificationType.Information
+                            )
+                        );
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =400
+                    X: =18
+                    Y: =15
+                    ZIndex: =1
+
+                Title5_4 As label:
+                    Color: =RGBA(50, 49, 48, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =18
+                    Text: =ThisItem.Title
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 173
+                    X: =18
+                    Y: =251
+                    ZIndex: =2
+
+                Subtitle3_4 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =23
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =ThisItem.'Creator(s)'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =Title5_4.X
+                    Y: =Title5_4.Y + Title5_4.Height
+                    ZIndex: =3
+
+                Separator1_4 As rectangle:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =8
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height
+                    ZIndex: =5
+
+        Label6_9 As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =66
+            PaddingBottom: =40
+            PaddingLeft: =35
+            PaddingTop: =40
+            Size: =27
+            Text: ="App Development"
+            Width: =1364
+            X: =2
+            Y: =24
+            ZIndex: =4
+
+        Container5_5 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Height: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_5.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_5.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_5.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinHeight: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_5.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_5.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_5.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =5
+
+            "Gallery5_5 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                BorderColor: =RGBA(32, 54, 71, 1)
+                DelayItemLoading: =true
+                Height: |-
+                    =If(
+                        Mod(
+                            CountRows(Gallery5_5.AllItems),
+                            3
+                        ) = 0,
+                        (CountRows(Gallery5_5.AllItems) / 3) * 300,
+                        (CountRows(Gallery5_5.AllItems) / 3 + 1) * 300
+                    )
+                Items: |-
+                    =Filter(
+                        Edura,
+                        Domain.Value = "App Development"
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                NavigationStep: =0
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =353
+                Width: =1325
+                WrapCount: =3
+                X: =21
+                Y: =30
+                ZIndex: =1
+
+                Image16_5 As image:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =220
+                    Image: |
+                        =ThisItem.Thumbnail
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: |-
+                        =Set(video,ThisItem.Video);
+                        Set(title,ThisItem.Title);
+                        Set(about,ThisItem.About);
+                        Set(creator,ThisItem.'Creator(s)');
+                        Set(students,ThisItem.'Students Enrolled');
+                        If(loggedIn,Navigate(courseDetails),Notify("Sign In Required!",NotificationType.Information));
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =400
+                    X: =18
+                    Y: =15
+                    ZIndex: =1
+
+                Title5_5 As label:
+                    Color: =RGBA(50, 49, 48, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =37
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =18
+                    Text: =ThisItem.Title
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =18
+                    Y: =251
+                    ZIndex: =2
+
+                Subtitle3_5 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =23
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =ThisItem.'Creator(s)'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =Title5_5.X
+                    Y: =Title5_5.Y + Title5_5.Height
+                    ZIndex: =3
+
+                Separator1_5 As rectangle:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =8
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height
+                    ZIndex: =5
+
+        Label6_10 As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =66
+            PaddingBottom: =40
+            PaddingLeft: =35
+            PaddingTop: =40
+            Size: =27
+            Text: ="Data Structures & Algorithms"
+            Width: =1364
+            X: =2
+            Y: =24
+            ZIndex: =6
+
+        Container5_6 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Height: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_6.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_6.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_6.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinHeight: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_6.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_6.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_6.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =7
+
+            "Gallery5_6 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                BorderColor: =RGBA(32, 54, 71, 1)
+                DelayItemLoading: =true
+                Height: |-
+                    =If(
+                        Mod(
+                            CountRows(Gallery5_6.AllItems),
+                            3
+                        ) = 0,
+                        (CountRows(Gallery5_6.AllItems) / 3) * 300,
+                        (CountRows(Gallery5_6.AllItems) / 3 + 1) * 300
+                    )
+                Items: |-
+                    =Filter(
+                        Edura,
+                        Domain.Value = "DSA & Coding"
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                NavigationStep: =0
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =353
+                Width: =1325
+                WrapCount: =3
+                X: =21
+                Y: =30
+                ZIndex: =1
+
+                Image16_6 As image:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =220
+                    Image: |
+                        =ThisItem.Thumbnail
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: |-
+                        =Set(video,ThisItem.Video);
+                        Set(title,ThisItem.Title);
+                        Set(about,ThisItem.About);
+                        Set(creator,ThisItem.'Creator(s)');
+                        Set(students,ThisItem.'Students Enrolled');
+                        If(loggedIn,Navigate(courseDetails),Notify("Sign In Required!",NotificationType.Information));
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =400
+                    X: =18
+                    Y: =15
+                    ZIndex: =1
+
+                Title5_6 As label:
+                    Color: =RGBA(50, 49, 48, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =37
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =18
+                    Text: =ThisItem.Title
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =18
+                    Y: =251
+                    ZIndex: =2
+
+                Subtitle3_6 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =23
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =ThisItem.'Creator(s)'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =Title5_6.X
+                    Y: =Title5_6.Y + Title5_6.Height
+                    ZIndex: =3
+
+                Separator1_6 As rectangle:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =8
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height
+                    ZIndex: =5
+
+        Label6_11 As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =66
+            PaddingBottom: =40
+            PaddingLeft: =35
+            PaddingTop: =40
+            Size: =27
+            Text: ="Data Science"
+            Width: =1364
+            X: =2
+            Y: =24
+            ZIndex: =8
+
+        Container5_7 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Height: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_7.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_7.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_7.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinHeight: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_7.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_7.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_7.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =9
+
+            "Gallery5_7 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                BorderColor: =RGBA(32, 54, 71, 1)
+                DelayItemLoading: =true
+                Height: |-
+                    =If(
+                        Mod(
+                            CountRows(Gallery5_7.AllItems),
+                            3
+                        ) = 0,
+                        (CountRows(Gallery5_7.AllItems) / 3) * 300,
+                        (CountRows(Gallery5_7.AllItems) / 3 + 1) * 300
+                    )
+                Items: |-
+                    =Filter(
+                        Edura,
+                        Domain.Value = "Data Science"
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                NavigationStep: =0
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =353
+                Width: =1325
+                WrapCount: =3
+                X: =21
+                Y: =30
+                ZIndex: =1
+
+                Image16_7 As image:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =220
+                    Image: |
+                        =ThisItem.Thumbnail
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: |-
+                        =Set(video,ThisItem.Video);
+                        Set(title,ThisItem.Title);
+                        Set(about,ThisItem.About);
+                        Set(creator,ThisItem.'Creator(s)');
+                        Set(students,ThisItem.'Students Enrolled');
+                        If(loggedIn,Navigate(courseDetails),Notify("Sign In Required!",NotificationType.Information));
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =400
+                    X: =18
+                    Y: =15
+                    ZIndex: =1
+
+                Title5_7 As label:
+                    Color: =RGBA(50, 49, 48, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =37
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =18
+                    Text: =ThisItem.Title
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =18
+                    Y: =251
+                    ZIndex: =2
+
+                Subtitle3_7 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =23
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =ThisItem.'Creator(s)'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =Title5_7.X
+                    Y: =Title5_7.Y + Title5_7.Height
+                    ZIndex: =3
+
+                Separator1_7 As rectangle:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =8
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height
+                    ZIndex: =5
+
+        Label6_8 As label:
+            AutoHeight: =true
+            BorderColor: =RGBA(32, 54, 71, 1)
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Semibold
+            Height: =66
+            PaddingBottom: =40
+            PaddingLeft: =35
+            PaddingTop: =40
+            Size: =27
+            Text: ="High School Courses"
+            Width: =1364
+            X: =2
+            ZIndex: =10
+
+        Container5_8 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            LayoutMinHeight: |-
+                =If(
+                    Mod(
+                        CountRows(Gallery5_8.AllItems),
+                        3
+                    ) = 0,
+                    (CountRows(Gallery5_8.AllItems) / 3) * 300,
+                    (CountRows(Gallery5_8.AllItems) / 3 + 1) * 300
+                )
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =11
+
+            "Gallery5_8 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+                BorderColor: =RGBA(32, 54, 71, 1)
+                DelayItemLoading: =true
+                Height: |-
+                    =If(
+                        Mod(
+                            CountRows(Gallery5_8.AllItems),
+                            3
+                        ) = 0,
+                        (CountRows(Gallery5_8.AllItems) / 3) * 300,
+                        (CountRows(Gallery5_8.AllItems) / 3 + 1) * 300
+                    )
+                Items: |-
+                    =Filter(
+                        Edura,
+                        Domain.Value = "High School"
+                    )
+                Layout: =Layout.Vertical
+                LoadingSpinner: =LoadingSpinner.Data
+                NavigationStep: =0
+                ShowScrollbar: =false
+                TemplatePadding: =0
+                TemplateSize: =353
+                Width: =1331
+                WrapCount: =3
+                X: =15
+                Y: =30
+                ZIndex: =1
+
+                Image16_8 As image:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =220
+                    Image: |
+                        =ThisItem.Thumbnail
+                    ImagePosition: =ImagePosition.Fill
+                    OnSelect: |
+                        =Set(
+                            video,
+                            ""
+                        );
+                        Set(
+                            title,
+                            ThisItem.Title
+                        );
+                        Set(
+                            about,
+                            ThisItem.About
+                        );
+                        Set(
+                            creator,
+                            ThisItem.'Creator(s)'
+                        );
+                        Set(
+                            students,
+                            ThisItem.'Students Enrolled'
+                        );
+                        Set(
+                            video,
+                            ThisItem.Video
+                        );
+                        If(
+                            loggedIn,
+                            Navigate(courseDetails),
+                            Notify(
+                                "Sign In Required!",
+                                NotificationType.Information
+                            )
+                        );
+                    RadiusBottomLeft: =8
+                    RadiusBottomRight: =8
+                    RadiusTopLeft: =8
+                    RadiusTopRight: =8
+                    Width: =400
+                    X: =18
+                    Y: =15
+                    ZIndex: =1
+
+                Title5_8 As label:
+                    Color: =RGBA(50, 49, 48, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =18
+                    Text: =ThisItem.Title
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 173
+                    X: =18
+                    Y: =251
+                    ZIndex: =2
+
+                Subtitle3_8 As label:
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =If(ThisItem.IsSelected, FontWeight.Semibold, FontWeight.Normal)
+                    Height: =23
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Size: =13
+                    Text: =ThisItem.'Creator(s)'
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =400
+                    X: =Title5_8.X
+                    Y: =Title5_8.Y + Title5_8.Height
+                    ZIndex: =3
+
+                Separator1_8 As rectangle:
+                    BorderColor: =RGBA(32, 54, 71, 1)
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =8
+                    OnSelect: =Select(Parent)
+                    Width: =Parent.TemplateWidth
+                    Y: =Parent.TemplateHeight - Self.Height
+                    ZIndex: =5
+
+        Container3_5 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(235, 237, 238, 1)
+            BorderThickness: =2
+            DropShadow: =DropShadow.Light
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =12
+
+            Rectangle10_5 As rectangle:
+                BorderColor: =RGBA(219, 219, 219, 1)
+                BorderThickness: =1
+                Fill: =RGBA(245, 246, 247, 1)
+                Height: =84
+                Width: =1366
+                Y: =16
+                ZIndex: =1
+
+            Label7_15 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                LineHeight: =1.7
+                Size: =12
+                Text: ="eduraofficial@gmail.com     +1(646) 918 8190     +1(646) 918 8192     50 Washington Square S, New York, NY 10012, USA"
+                Width: =681
+                X: =342
+                Y: =26
+                ZIndex: =2
+
+            Label7_17 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                LineHeight: =1.7
+                Size: =12
+                Text: |-
+                    ="Contact Us:"
+                Width: =299
+                Y: =34
+                ZIndex: =3
+
+            Label7_16 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =49
+                LineHeight: =1.7
+                Size: =13
+                Text: ="© Edura 2023"
+                Width: =343
+                X: =1006
+                Y: =27
+                ZIndex: =4
+

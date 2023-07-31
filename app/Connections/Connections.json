@@ -1,0 +1,56 @@
+{
+  "28c0122f-fed7-4333-8fcb-f354b297c570": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Outlook",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/laborbol/partial-builds/390724148/1.0.1641.3327/office365/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Outlook"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "28c0122f-fed7-4333-8fcb-f354b297c570"
+  },
+  "753a87c6-dcf8-43fb-888f-ef0b64925cf8": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/shgogna/globalperconnector-train1/1.0.1639.3310/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://sigilotech.sharepoint.com/sites/Edura": {
+        "dataSources": {
+          "Edura": {
+            "tableName": "fe6bde55-a804-4ddf-8882-97ca4b574f07"
+          },
+          "Edura_1": {
+            "tableName": "fe6bde55-a804-4ddf-8882-97ca4b574f07"
+          },
+          "EduraUsers": {
+            "tableName": "69cfb84f-0b01-4822-97b6-c62eeb6c8ffc"
+          },
+          "Newsletter-Subscribers": {
+            "tableName": "c2468e30-d891-4532-b2dd-d7871f4740d7"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Edura",
+      "Edura_1",
+      "EduraUsers",
+      "Newsletter-Subscribers"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "753a87c6-dcf8-43fb-888f-ef0b64925cf8"
+  }
+}

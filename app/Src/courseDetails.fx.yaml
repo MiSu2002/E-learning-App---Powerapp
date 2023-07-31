@@ -1,0 +1,286 @@
+courseDetails As screen:
+    LoadingSpinnerColor: =RGBA(100, 118, 132, 1)
+    OnVisible: =
+
+    Container13 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =668
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =1366
+        Y: =100
+        ZIndex: =1
+
+        Video2 As videoPlayback:
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =RGBA(144, 146, 149, 1)
+            BorderThickness: =15
+            Fill: =RGBA(100, 118, 132, 1)
+            Height: =668
+            LayoutMinWidth: =
+            Media: =video
+            OnStart: =
+            ZIndex: =1
+
+        Container11 As groupContainer.manualLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(29, 49, 64, 1)
+            LayoutMinHeight: =270
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =2
+
+            Label9 As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(255, 255, 255, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =58
+                Size: =30
+                Text: =title
+                Width: =942
+                X: =35
+                Y: =50
+                ZIndex: =1
+
+            Label9_1 As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(225, 227, 230, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =80
+                Size: =18
+                Text: =about
+                Width: =877
+                X: =35
+                Y: =92
+                ZIndex: =2
+
+            Label9_2 As label:
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(141, 152, 181, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =80
+                Size: =18
+                Text: =creator
+                Width: =393
+                X: =35
+                Y: =136
+                ZIndex: =3
+
+        Container3_6 As groupContainer.manualLayoutContainer:
+            BorderColor: =RGBA(235, 237, 238, 1)
+            BorderThickness: =2
+            DropShadow: =DropShadow.Light
+            LayoutMinHeight: =85
+            LayoutMinWidth: =250
+            RadiusBottomLeft: =4
+            RadiusBottomRight: =4
+            RadiusTopLeft: =4
+            RadiusTopRight: =4
+            ZIndex: =3
+
+            Rectangle10_6 As rectangle:
+                BorderColor: =RGBA(219, 219, 219, 1)
+                BorderThickness: =1
+                Fill: =RGBA(245, 246, 247, 1)
+                Height: =84
+                Width: =1366
+                Y: =1
+                ZIndex: =1
+
+            Label7_18 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =48
+                LineHeight: =1.7
+                Size: =12
+                Text: ="eduraofficial@gmail.com     +1(646) 918 8190     +1(646) 918 8192     50 Washington Square S, New York, NY 10012, USA"
+                Width: =681
+                X: =342
+                Y: =16
+                ZIndex: =2
+
+            Label7_20 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =35
+                LineHeight: =1.7
+                Size: =12
+                Text: |-
+                    ="Contact Us:"
+                Width: =299
+                Y: =24
+                ZIndex: =3
+
+            Label7_19 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(32, 54, 71, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FontWeight: =FontWeight.Semibold
+                Height: =49
+                LineHeight: =1.7
+                Size: =13
+                Text: ="© Edura 2023"
+                Width: =343
+                X: =1006
+                Y: =17
+                ZIndex: =4
+
+    navbar_6 As rectangle:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        DisplayMode: =DisplayMode.View
+        Fill: =RGBA(245, 246, 247, 1)
+        Width: =1366
+        ZIndex: =2
+
+    logo_6 As label:
+        BorderColor: =RGBA(32, 54, 71, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisplayMode: =DisplayMode.View
+        Font: =Font.'Great Vibes'
+        Size: =50
+        Text: ="edura"
+        Width: =127
+        X: =35
+        Y: =30
+        ZIndex: =3
+
+    navlinkSign_6 As button:
+        BorderThickness: =0
+        Color: =RGBA(9, 33, 98, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: |
+            =If(
+                loggedIn,
+                Set(loggedIn, false);
+            );
+            Navigate(dashboard);
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: |-
+            =If(
+                loggedIn,
+                "LOGOUT",
+                "SIGN IN / REGISTER"
+            )
+        Width: |-
+            =If(
+                loggedIn,
+                170,
+                270
+            )
+        X: |-
+            =If(
+                loggedIn,
+                1180,
+                1080
+            )
+        Y: =35
+        ZIndex: =4
+
+    navlinkHome_6 As button:
+        BorderThickness: =0
+        Color: =RGBA(22, 38, 50, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Lighter
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: =Navigate(homeScreen);
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: ="HOME"
+        Width: =150
+        X: |-
+            =If(
+                loggedIn,
+                790,
+                820
+            )
+        Y: =30
+        ZIndex: =5
+
+    navlinkCourses_6 As button:
+        BorderThickness: =0
+        Color: =RGBA(22, 38, 50, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Lighter
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: =Navigate(coursesScreen);
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: ="COURSES"
+        Width: =150
+        X: |-
+            =If(
+                loggedIn,
+                910,
+                950
+            )
+        Y: =30
+        ZIndex: =6
+
+    creatorLink_6 As button:
+        BorderThickness: =0
+        Color: =RGBA(22, 38, 50, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =Font.'Lato Black'
+        FontWeight: =FontWeight.Lighter
+        HoverColor: =RGBA(37, 41, 88, 1)
+        HoverFill: =Color.Transparent
+        OnSelect: =Navigate(coursesScreen);
+        PressedColor: =RGBA(37, 41, 88, 1)
+        PressedFill: =Color.Transparent
+        Size: =17
+        Text: ="CREATOR"
+        Visible: |-
+            =If(
+                loggedIn,
+                true,
+                false
+            )
+        Width: =150
+        X: =1050
+        Y: =30
+        ZIndex: =7
+
